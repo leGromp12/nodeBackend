@@ -1,0 +1,33 @@
+# Node.js dependencies
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build artifacts
+dist/
+build/
+.next/ # For Next.js projects
+out/ # For Next.js projects
+
+# Temporary files
+tmp/
+*.tmp
+
+# IDE-specific files (examples)
+.vscode/ # VS Code settings
+.idea/ # IntelliJ IDEA settings
+
+# OS generated files
+.DS_Store
+Thumbs.db
