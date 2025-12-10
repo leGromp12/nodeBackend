@@ -4,7 +4,6 @@ import dotenv from "dotenv";
 import { connectDB } from "./services/db.js";
 import productRoutes from "./routes/productRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
-import productRoutes from "./routes/productRoutes.js";
 
 app.use("/auth", authRoutes);
 app.use("/products", productRoutes);
