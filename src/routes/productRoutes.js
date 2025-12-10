@@ -1,5 +1,10 @@
 import express from "express";
-import { getProduct, createProduct } from "../controllers/contentController.js";
+import {
+  getProduct,
+  createProduct,
+  updateProduct,
+  deleteProduct,
+} from "../controllers/contentController.js";
 import { validateProduct } from "../middleware/validate.js";
 
 import { authRequired } from "../middleware/authMiddleware.js";
