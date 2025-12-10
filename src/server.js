@@ -5,12 +5,12 @@ import { connectDB } from "./services/db.js";
 import productRoutes from "./routes/productRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 
+const app = express();
+
 app.use("/auth", authRoutes);
 app.use("/products", productRoutes);
 
 dotenv.config();
-
-const app = express();
 
 // --- CORS setup (allow only your UI domain) ---
 const allowedOrigins = process.env.CLIENT_ORIGINS.split(",");
