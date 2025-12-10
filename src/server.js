@@ -3,19 +3,30 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { connectDB } from "./services/db.js";
 import productRoutes from "./routes/productRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
+import productRoutes from "./routes/productRoutes.js";
+
+app.use("/auth", authRoutes);
+app.use("/products", productRoutes);
 
 dotenv.config();
 
 const app = express();
 
 // --- CORS setup (allow only your UI domain) ---
-const allowedOrigin = process.env.CLIENT_ORIGIN || "http://localhost:4200";
+const allowedOrigins = process.env.CLIENT_ORIGINS.split(",");
 
 app.use(
   cors({
-    origin: allowedOrigin,
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true); // Postman
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+      callback(new Error("Not allowed by CORS"));
+    },
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
 
